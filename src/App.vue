@@ -1,12 +1,9 @@
 <template>
   <div id="app">
-    <button
-      type="button"
-      class="btn btn-outline-light"
-      @click="$router.push({ name: 'boards' })"
-    >
-      к доскам
-    </button>
+    <div class="main" @click="$router.push({ name: 'boards' })">
+      <img src="@/assets/images/smile2.png" alt="" srcset="" />
+      К доскам
+    </div>
 
     <router-view></router-view>
   </div>

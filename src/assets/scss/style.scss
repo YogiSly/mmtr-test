@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Merienda';
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+li {
+list-style: none;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 7px 20px;
+    cursor: pointer;
+    max-width: 140px;
+    margin: 15px auto;
+    background: #d5d7d0;
+    border: 3px solid #000;
+    box-sizing: border-box;
+    &:hover {
+        background:#b2b5ad;
+    }
+}
+.btn {
+    width: 220px;
+    background: #60a34f;
+    color: #ffffff;
+    border: 2px solid #000;
+    box-shadow: 2px 2px #2c3029;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    font-size: 20px;
+    &__add {
+        cursor: pointer;
+        padding-right: 36px;
+    }
+    &__add-plus {
+        margin-left: 7px;
+    }
+    &__close {
+        background: #edc66d;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        margin-right: 7px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 13px;
+    }
+    &__cancel-form {
+        width: 85px;
+        height: 34px;
+        background: #fff;
+        color: #000;
+        font-size: 16px;
+        font-weight: 700;
+        justify-content: center;
+    }
+    &__add-form {
+        width: 100px;
+        height: 34px;
+        font-size: 16px;
+        font-weight: 700;
+        justify-content: center;
+    }
+    &__boards {
+        width: 100%;
+        background: #fff;
+        color: #000;
+        justify-content: center;
+        margin-bottom: 15px;
+        cursor: pointer;
+        box-shadow: none;
+        position: relative;
+    }
+    &__add-task {
+        background: #fff;
+        color: #000;
+        justify-content: center;
+        width: 250px;
+        font-size: 16px;
+        height: 34px;
+        cursor: pointer;
+    }
+    &__close-task {
+        background: #000;
+        color: #fff;
+        top: 2px;
+        right: -2px;
+    }
+    &__close-list {
+        background: #000;
+        color: #fff;
+        top: 7px;
+    }
+}
+.item-dropzone-area {
+  height: 24px;
+  background: #888;
+  opacity: 0.8;
+  animation-duration: 0.5s;
+  animation-name: nodeInserted;
+  margin-top: 7px;
+}
+@import 'boards';
+@import 'my-board';

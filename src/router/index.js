@@ -1,7 +1,7 @@
 
 import VueRouter from 'vue-router'
 import Boards from '../views/Boards'
-import MyBoards from '../views/MyBoards'
+import MyBoard from '../views/MyBoard'
 
 
 export default new VueRouter({
@@ -13,9 +13,9 @@ export default new VueRouter({
       component: Boards
     },
     {
-      path: '/boards/my-boards/:id',
-      name: 'my-boards',
-      component: MyBoards
+      path: '/boards/my-board/:id',
+      name: 'my-board',
+      component: MyBoard
     },
   ]
 })

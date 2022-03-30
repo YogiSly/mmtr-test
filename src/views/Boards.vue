@@ -1,66 +1,59 @@
 <template>
   <div class="boards">
-    <h1>Доски</h1>
-
-    <button @click="addBoardForm">Новая доска</button>
-    <form
-      @submit.prevent="submit"
-      v-show="showBoardForm"
-      class="boards__add-form"
-    >
-      <input type="text" class="boards__add-name" v-model="name" />
-      <button class="boards__cancel-btn" @click.prevent="clearBoardForm">
-        Отмена
-      </button>
-      <button class="boards__add-btn">Сохранить</button>
-    </form>
-    <div class="boards__list-container">
-      <ul class="boards__list">
-        <li v-for="(board, index) in getBoards" :key="index">
-          <button
-            @click="
-              $router.push({ name: 'my-boards', params: { id: board.id } })
-            "
-          >
-            {{ board.name }}
+    <div class="boards__container">
+      <div class="btn btn__add" @click="showBoardForm">
+        <img class="btn__add-plus" src="@/assets/images/plus.svg" />
+        Новая доска
+      </div>
+      <div class="btn__close" @click.prevent="clearBoardForm">X</div>
+      <form @submit.prevent="submit" v-show="formAdd" class="boards__add-form">
+        <span class="boards__name">Название доски</span>
+        <input type="text" class="boards__add-name" v-model="name" />
+        <div class="boards__block-btn">
+          <button class="btn btn__cancel-form" @click.prevent="clearBoardForm">
+            Отмена
           </button>
-        </li>
-      </ul>
+          <button class="btn btn__add-form" @click.prevent="submit">
+            Сохранить
+          </button>
+        </div>
+      </form>
     </div>
+    <boards-component />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-
+import BoardsComponent from "@/components/BoardsComponent.vue";
 export default {
-  //name: "Boards",
+  components: {
+    BoardsComponent,
+  },
   data() {
     return {
-      showBoardForm: false,
+      formAdd: false,
       name: "",
       tasks: [],
     };
   },
+
   computed: {
-    ...mapGetters(["getBoards", "GET_BOARD_ID"]),
-    product() {
-      return this.$store.getters["getProductData"];
-    },
+    ...mapGetters(["GET_BOARDS", "GET_BOARD_ID"]),
   },
   methods: {
-    addBoardForm() {
-      this.showBoardForm = !this.showBoardForm;
+    showBoardForm() {
+      this.formAdd = true;
     },
     clearBoardForm() {
       this.name = "";
-      this.showBoardForm = !this.showBoardForm;
+      this.formAdd = false;
     },
     submit() {
       this.$store.dispatch("SAVE_BOARD", this.name);
       this.name = "";
-      this.showBoardForm = !this.showBoardForm;
+      this.showBoardForm = false;
     },
   },
   mounted() {

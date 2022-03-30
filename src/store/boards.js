@@ -5,7 +5,7 @@ const boards = {
     boards: []
   },
   getters: {
-    getBoards(state) {
+    GET_BOARDS(state) {
       return state.boards
     },
     GET_BOARD_ID(state) {
@@ -13,14 +13,12 @@ const boards = {
         return state.boards.find((board) => board.id === +id)
       }
     },
-
   },
   mutations: {
     LOAD_BOARDS(state, data) {
       state.boards = data
     },
     ADD_BOARD: (state, data) => {
-      //  console.log(data);
       state.boards.push(data);
     },
     SET_BOARD(state, data) {
@@ -40,15 +38,26 @@ const boards = {
         tasks: []
       })
         .then((data) => {
-          //   console.log(data.data);
           commit('ADD_BOARD', data.data);
           return data.data;
+        })
+    },
+    DELETE_BOARD: async ({ commit }, id) => {
+      axios.delete(`http://localhost:3000/boards/${id}`)
+        .then((data) => {
+          return data.data;
+        })
+        .then((res) => {
+          axios.get('http://localhost:3000/boards', res)
+            .then((update) => {
+              commit('LOAD_BOARDS', update.data);
+              return update.data;
+            })
         })
     },
     SET_BOARD({ commit }, data) {
       commit("SET_BOARD", data)
     },
-
   }
 }
 export default boards;
