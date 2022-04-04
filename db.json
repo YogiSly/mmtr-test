@@ -19,13 +19,15 @@
           ]
         },
         {
-          "title": "четвертая задача",
+          "title": "вторая задача",
           "lists": [
             {
-              "title": "первый элемент"
+              "title": "1 дело",
+              "done": false
             },
             {
-              "title": "второй элемент"
+              "title": "2 дело",
+              "done": false
             }
           ]
         },
@@ -33,13 +35,20 @@
           "title": "третья задача",
           "lists": [
             {
-              "title": "Выполнить 1 часть"
+              "title": "4 дело",
+              "done": false
             },
             {
-              "title": "Выполнить 2 часть"
+              "title": "6 дело",
+              "done": false
             },
             {
-              "title": "Выполнить 3 часть"
+              "title": "3дело",
+              "done": false
+            },
+            {
+              "title": "7 дело",
+              "done": false
             }
           ]
         }
@@ -50,23 +59,42 @@
       "id": 25,
       "tasks": [
         {
-          "title": "two task",
-          "lists": []
-        },
-        {
-          "title": "three task",
+          "title": "Список 1",
           "lists": [
             {
-              "title": "one li"
+              "title": "Элемент списка 1",
+              "done": false
             },
             {
-              "title": "two li"
+              "title": "Элемент списка 2",
+              "done": false
+            },
+            {
+              "title": "Элемент списка3",
+              "done": false
             }
           ]
         },
         {
-          "title": "one task",
-          "lists": []
+          "title": "Список 2",
+          "lists": [
+            {
+              "title": "Элемент списка 4",
+              "done": false
+            },
+            {
+              "title": "Элемент списка 5",
+              "done": true
+            },
+            {
+              "title": "элемент списка 6",
+              "done": true
+            },
+            {
+              "title": "Элемент списка 7",
+              "done": false
+            }
+          ]
         }
       ]
     },
@@ -75,33 +103,45 @@
       "id": 26,
       "tasks": [
         {
-          "title": "первая задача",
+          "title": "Поставленные задачи",
           "lists": [
             {
-              "title": "первый пункт"
-            },
-            {
-              "title": "второй пункт"
-            },
-            {
-              "title": "третий пункт"
+              "title": "Дождаться обратной связи",
+              "done": false
             }
           ]
         },
         {
-          "title": "вторая задача",
+          "title": "Задачи в процессе",
           "lists": [
             {
-              "title": "первый пункт"
+              "title": "Отправить на проверку",
+              "done": false
+            }
+          ]
+        },
+        {
+          "title": "Выполненные задачи",
+          "lists": [
+            {
+              "title": "Подключить router",
+              "done": true
+            },
+            {
+              "title": "Подключить vuex",
+              "done": true
+            },
+            {
+              "title": "Drag'n'Drop",
+              "done": true
+            },
+            {
+              "title": "Тестирование ",
+              "done": true
             }
           ]
         }
       ]
-    },
-    {
-      "name": "5 доска",
-      "id": 28,
-      "tasks": []
     }
   ]
 }

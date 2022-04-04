@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     deleteBoard(id) {
-      console.log(id);
       this.$store.dispatch("DELETE_BOARD", id);
     },
   },

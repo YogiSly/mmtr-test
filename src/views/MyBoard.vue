@@ -21,7 +21,7 @@
             type="text"
             class="my-board__add-name-task"
             v-model="taskData.nameTask"
-            @keyup.enter="addTask(taskData)"
+            @keyup.enter="addTask()"
             placeholder="Новая задача"
           />
         </form>
@@ -43,8 +43,10 @@ export default {
         nameTask: "",
         numberBoard: this.$route.params.id,
         nameList: "",
+        lists: {},
       },
       showInputList: false,
+      clear: {},
     };
   },
   props: {},
@@ -60,12 +62,17 @@ export default {
     closeTaskForm() {
       this.showTaskForm = false;
     },
-    addTask(taskData) {
-      this.$store.dispatch("ADD_TASKS_DATA", taskData);
+    addTask() {
+      this.taskData.lists = this.board.board;
+      this.taskData.lists.tasks.push({
+        title: this.taskData.nameTask,
+        lists: [],
+      });
+      this.$store.dispatch("EDIT_BOARD_DATA", this.taskData);
       this.showTaskForm = false;
+      this.taskData.nameTask = "";
     },
-    showInputListAdd(e) {
-      console.log(e);
+    showInputListAdd() {
       this.showInputList = !this.showInputList;
     },
   },
@@ -73,11 +80,11 @@ export default {
     fetch(`http://localhost:3000/boards/${this.$route.params.id}`).then((res) =>
       res.json().then((data) => {
         this.$store.dispatch("SET_BOARD_DATA", data);
-        //console.log(this.$route.params.id);
       })
     );
-    this.$store.dispatch("SET_TASKS_DATA", this.taskData);
   },
-  destroyed() {},
+  destroyed() {
+    this.$store.dispatch("CLEAR_BOARD_DATA", this.clear);
+  },
 };
 </script>

@@ -5,7 +5,9 @@
         <img class="btn__add-plus" src="@/assets/images/plus.svg" />
         Новая доска
       </div>
-      <div class="btn__close" @click.prevent="clearBoardForm">X</div>
+      <div class="btn__close" @click.prevent="clearBoardForm" v-if="formAdd">
+        X
+      </div>
       <form @submit.prevent="submit" v-show="formAdd" class="boards__add-form">
         <span class="boards__name">Название доски</span>
         <input type="text" class="boards__add-name" v-model="name" />
@@ -53,7 +55,7 @@ export default {
     submit() {
       this.$store.dispatch("SAVE_BOARD", this.name);
       this.name = "";
-      this.showBoardForm = false;
+      this.formAdd = false;
     },
   },
   mounted() {
